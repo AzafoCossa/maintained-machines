@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}" />
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css')}}" />
         <link rel="stylesheet" href="{{ asset('assets/vendor/libs/@form-validation/form-validation.css')}}" />
+        <link rel="stylesheet" href="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.css')}}" />
 
         <!-- Page CSS -->
         <!-- <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/cards-advance.css')}}" /> -->
@@ -61,13 +62,27 @@
         <script src="{{ asset('assets/vendor/libs/@form-validation/auto-focus.js')}}"></script>
 
         <script src="{{ asset('assets/vendor/js/menu.js')}}"></script>
+        <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js')}}"></script>
 
         <!-- endbuild -->
 
         <!-- Vendors JS -->
-
         <!-- Main JS -->
         <script src="{{ asset('assets/js/main.js')}}"></script>
+        <script src="{{asset('assets/js/extended-ui-sweetalert2.js')}}"></script>
         @livewireScripts
+        <script>
+            $(document).ready(function(){
+                Livewire.on('show-message', function(event){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: event.type,
+                        title: event.message,
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
