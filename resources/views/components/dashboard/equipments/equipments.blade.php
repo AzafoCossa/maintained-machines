@@ -6,6 +6,28 @@
             <button @click="showEquipmentForm = true" class="btn btn-primary">Adicionar equipamento</button>
         </div>
 
+        <div x-show="!showEquipmentForm" class="card mt-7">
+            <h5 class="card-header">Listagem de equipamentos</h5>
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                <thead>
+                    <tr class="text-nowrap">
+                    <th>#</th>
+                    <th>Nome do equipamento</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                    @foreach($equipments as $equipment)
+                    <tr>
+                        <th scope="row">{{$loop->index++}}</th>
+                        <td>{{$equipment->name}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                </table>
+            </div>
+        </div>
+
         <form wire:submit.prevent="saveEquipment" x-show="showEquipmentForm">
             <div>
                 <label for="equipment" class="form-label">Nome do equipamento</label>
