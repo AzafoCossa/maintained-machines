@@ -1,5 +1,5 @@
 <!-- Menu -->
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+<aside wire:ignore id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
     <a href="index.html" class="app-brand-link">
         <span class="app-brand-logo demo">
@@ -44,6 +44,12 @@
             <a href="{{ route('dashboard.home') }}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-smart-home"></i>
             <div data-i18n="Calendar">Dashboard</div>
+            </a>
+        </li>
+        <li class="menu-item @if(request()->routeIs('dashboard.equipments')) active @endif">
+            <a href="{{ route('dashboard.equipments') }}" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-truck"></i>
+            <div>Equipamentos</div>
             </a>
         </li>
     </ul>

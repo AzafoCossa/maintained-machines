@@ -20,5 +20,6 @@ Route::middleware('auth')->group(function(){
     
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
         Route::livewire('/', 'dashboard.home')->name('home');
+        Route::livewire('/equipments', 'dashboard.equipments')->name('equipments');
     });
 });
